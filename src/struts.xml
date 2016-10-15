@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+     "http://struts.apache.org/dtds/struts-2.5.dtd">
+ 
+ <!-- START SNIPPET: xworkSample -->
+ <struts>
+   <constant name="struts.i18n.encoding" value="UTf-8"/>
+    <package name="wei" extends="struts-default">
+ 
+        <action name="login" class="Book.book" method="execute">
+            <result name="success">/WEB-INF/authname_bkname.jsp</result>
+             <result name="error">/WEB-INF/unknow.jsp</result>
+             <result name="veryerror">/WEB-INF/NOBOOK.jsp</result>
+         </action>
+         <action name="select"  class="Book.book"  method="Select">
+             <result name="success">/WEB-INF/Welcome.jsp</result>
+         </action>
+         <action name="delete" class="Book.book" method="delete">
+             <result name="deletesuccess" type="redirectAction">/1.commombookdb.applinzi.com/login?AuthorID=${AuthorID}</result>
+         </action>
+         <action name="Addbook" class="Book.book" method="addbook">
+              <result name="Hava_an_author">/WEB-INF/have_author.jsp</result>
+              <result name="noauthor">/WEB-INF/NO_author.jsp</result>
+         </action>
+         
+         <action name="addauthor" class="Book.book" method="addauthor">
+              <result name="author_add_ok">/WEB-INF/addauthor_ok.jsp</result>
+         </action>
+         
+         <action name="refresh_" class="Book.book" method="select_">
+              <result name="no_book">/WEB-INF/no_book.jsp</result>
+              <result name="refresh">/WEB-INF/refersh_book.jsp</result>
+         </action>
+         
+         <action name="refresh" class="Book.book" method="refresh">
+              <result name="refresh_ok">/WEB-INF/refresh_ok.jsp</result>
+         </action>
+    </package>
+
+ 
+ </struts>
+<!-- END SNIPPET: xworkSample -->
